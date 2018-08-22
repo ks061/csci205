@@ -63,3 +63,12 @@ Exercise 3:
 3.6: 1) Make sure you are in the directory of the program by using cd to navigate to the directory of the program. 2) Make sure the class name within the Java file and the filename
      both have the same name (in this case, filename: MyProgram.java; class name: MyProgram). 3) Type in "javac MyProgram.java" without the double quotes and press Enter. 
      4) Type in "java MyProgram" without the double quotes and press Enter.
+
+Exercise 4:
+
+4.1: "Prints a String and then terminate the line. This method behaves as though it invokes print(String) and then println()." (Source: https://docs.oracle.com/javase/8/docs/api/)
+4.2: The object that represents the "standard" input stream is "in." Its type is "InputStream."
+
+Exercise 5:
+
+

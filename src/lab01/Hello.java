@@ -18,7 +18,10 @@ package lab01;
 public class Hello
 {
     public static void main( String[] args ){
-        System.out.println("Programming is not a spectator sport!");
+        long startTime  = System.nanoTime();
+	System.out.println("Programming is not a spectator sport!");
+	long estimatedTime = System.nanoTime() - startTime;
+	System.out.println("Time to execute: " + estimatedTime + " ns");
 	System.exit(0);
     }
 }
