@@ -67,8 +67,37 @@ Exercise 3:
 Exercise 4:
 
 4.1: "Prints a String and then terminate the line. This method behaves as though it invokes print(String) and then println()." (Source: https://docs.oracle.com/javase/8/docs/api/)
-4.2: The object that represents the "standard" input stream is "in." Its type is "InputStream."
+4.2: The "standard" input stream is "in." Its type is InputStream.
 
-Exercise 5:
+Exercise 5: 
 
+5.1: Because the type of the result is the 'larger' of the types of each of the operands and both types of both of the operands are int, the result will also be an int, i.e. the 
+     Whole number part of the mathematical result of performing the division operation.
+5.2: 
 
+1.0
+
+Because the type of the result is the 'larger' of the types of each of the operands and both types of both of the operands are int, the result of evaluating the express will also 
+be an int, i.e. the whole number part of the mathematical result of performing the division operation. However, the value that gets assigned to the variable is a double, i.e. a
+decimal number not an integer, because the type of the answer variable is a double.
+
+Exercise 6:
+
+6.1: The args variable represents a list of String objects that contains the arguments passed into the command line when running the program with the "java" command in the
+     command line.
+6.2: The void keyword in a method declaration represents that the method does not return anything.
+6.3: Identifiers are the names or series of characters used to represent a class, method, or variable.
+6.4: Keywords are words that Java interprets with special meaning, such as characterizing a variable or designating a loop.
+6.5: Float and double variables are floating types (both hold decimal numbers). The difference is in the number of significant digits float variables and double variables can hold.
+     Float variables hold 4 bytes, whereas double variables hold 8 bytes; a double variable can hold about twice the number of significant digits as a float variable can.
+6.6: Byte, short, int, and long variables all hold integral numbers. The difference is in the number of significant digits byte, short, int, and long variables can hold.
+     Byte variables hold 1 byte, short variables hold 2 bytes, int variables hold 4 bytes, and long variables hold 8 bytes; long variables hold the most amount of significant digits
+     of the aforementioned integral primitive types in Java, int variables hold the second most amount of significant digits of the aforementioned integral primitive types in Java, 
+     short variables hold the third most amount of significant digits of the aforementioned integral primitive types in Java, and bytes hold the least amount of significant digits
+     Of the aforementioned integral primitive types in Java.
+6.7: A String is not a primitive type. It is a class; an instance of a String would be an object.
+6.8: 
+
+String name = "Kartikeya Sharma";
+
+6.9: The "scope" of a variable refers to what section of the code, such as a class, the code is visible in, including accessible or modifiable in.
