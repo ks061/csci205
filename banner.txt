@@ -5,10 +5,10 @@
 * Section: 12 PM
 *
 * Name: Kartikeya Sharma
-* Date: 08/22/2018
+* Date: xx/xx/2018
 *
-* Lab / Assignment: Lab 01
+* Lab / Assignment:
 *
-* Description: The goal of this lab is to learn/review the command line, Git, and Java.
-*
+* Description:
+* 
 * *****************************************/
