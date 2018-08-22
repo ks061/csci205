@@ -1,0 +1,51 @@
+Name: Kartikeya Sharma
+Class: csci205
+Section: 12 PM
+Lab: lab01
+
+Questions: 2.5
+
+Answers:
+
+Exercise 1:
+
+1.1: /home/accounts/student/k/ks061
+1.2: The -a option "[ignores] entries starting with ."
+1.3: The -l option "[uses] a long listing format."
+1.4: The -c option. It sorts with the most recent file listed first. Confirmed with the -clt option.
+1.5: The -cr option.
+1.6: The -S option. Confirmed with the -Ss option.
+1.7: 
+
+csci205:
+total 4
+drwx--x--x 3 ks061 student 4096 Aug 20 12:28 src
+
+csci205/src:
+total 4
+drwx--x--x 2 ks061 student 4096 Aug 20 12:52 lab01
+
+csci205/src/lab01:
+total 4
+-rw------- 1 ks061 student 396 Aug 20 12:52 answers.txt
+
+Exercise 2: 
+
+2.1: A version control system is a system that aids in cataloging changes to either a single file or multiple files in a way that specific versions of that file or those 
+     files can be recalled in the future when needed.
+2.2: 1) Local Version Control System (LVCS) 2) Centralized Version Control System (CVCS) 3) Distributed Version Control System (DVCS). A Local Version Control System would be 
+     useful when one programmer is developing a browser script to increase the efficiency of his personal workflow. A Centralized Version Control System would be useful when 
+     developing an open-source operating system, such as Linux, as administrators can control who can perform which actions; server downtown may not be as much of a problem
+     for such large projects that are well-enough funded and run at reliable data centers. A Distributed Version Control System would be useful when a team of technology
+     consultants are constantly traveling with on-and-off Internet connection yet need to work on a software project together.
+2.3: Git is a Distributed Version Control System.
+2.4: The fact that most operations in Git are performed locally means that Git only needs the local machine, including local computing resources and local files, to function.
+     For one, this means that most operations will circumvent speed inefficiencies due to network latency, making Git run faster than a typical Centralized Version Control
+     System on most operations. Secondly, if you have no Internet connection (due to service loss, travel, etc.), Git is operational offline; one can commit their code changes
+     locally until available Internet access allows for uploading those changes.
+2.5: Each data object is referred to with a SHA-1 hash/checksum, which is a string of hexadecimal characters calculated based on either directory structure or what is contained
+     within files; this hash holds the integrity of each change because if even one character in a file/directory structure is changed, git will recognize those as non-committed 
+     changes until formally committed by the end user with a new hash. Also, almost all Git actions add data to the Git database, making it difficult to lose previous versions.
+2.6: There are three states: modified, staged, and committed. The modified state is when files are being crafted in a sandbox, where changes can be made without publishing said
+     changes. The staged state is when a particular version of a file (the current version of the file at the time the file is staged) is marked to be included in the next
+     publishing of the Git project directory. The committed state is when files are published; this version is added to Git's database.
