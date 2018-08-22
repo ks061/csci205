@@ -1,13 +1,13 @@
 # CSCI 205 - Software Engineering and Design
 
 ## Course Info
-Professor Dancy
-Semester: Fall 2018
+Professor Dancy <br/>
+Semester: Fall 2018 <br/>
 Section: 12 PM
 
 ## Student Info
-Kartikeya Sharma
-Major: Computer Science & Engineering
+Kartikeya Sharma <br/>
+Major: Computer Science & Engineering <br/>
 
 I am from north/central New Jersey. I have two Australian budgies.
 
