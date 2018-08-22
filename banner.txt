@@ -1,0 +1,14 @@
+/* *****************************************
+* CSCI205 - Software Engineering and Design
+* Fall 2018
+* Instructor: Professor Dancy
+* Section: 12 PM
+*
+* Name: Kartikeya Sharma
+* Date: 08/22/2018
+*
+* Lab / Assignment: Lab 01
+*
+* Description: The goal of this lab is to learn/review the command line, Git, and Java.
+*
+* *****************************************/
