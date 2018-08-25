@@ -2,8 +2,8 @@
  * CSCI205 - Software Engineering and Design
  * Fall 2018
  *
- * Name: YOUR NAME
- * Date: ??/??/????
+ * Name: Kartikeya Sharma
+ * Date: 08/26/2018
  *
  * Lab: Lab02, Exercise 1
  *
