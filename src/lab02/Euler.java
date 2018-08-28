@@ -33,11 +33,11 @@ public class Euler {
     public static double computeEulerTerm(int n, double x) {
         // TODO - Complete this method based on the code given in the lab
     	double numerator = 1.0, denominator = 1.0;
-		for(int i = 1; i <= n; i++) {
-	    	numerator *= x; // Compute the x to the n
-	    	denominator *= i; // Compute n!
-		}
-		double term = numerator / denominator;
+	for(int i = 1; i <= n; i++) {
+	    numerator *= x; // Compute the x to the n
+	    denominator *= i; // Compute n!
+	}
+	double term = numerator / denominator;
     	return term;
     }
 
@@ -53,7 +53,7 @@ public class Euler {
     public static double computeEulerSlow(double x, int numTerms) {
         // TODO - Complete this method!
     	double sum = 0.0;
-	    for(int i = 0; i <= numTerms; i++) {
+	for(int i = 0; i <= numTerms; i++) {
             sum += computeEulerTerm(i, x);
         }
         return sum;
@@ -74,7 +74,6 @@ public class Euler {
         double sum = currentTerm;
         for(int i = 1; i <= numTerms; i++) {
             currentTerm *= (x/i);
-            // currentTerm /= i;
             sum += currentTerm;
         }
         return sum;
