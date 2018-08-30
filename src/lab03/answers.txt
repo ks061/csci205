@@ -115,6 +115,6 @@ count = 0 to count = n).
       with a reference to the "MyString" String literal. In option b), the
       Java Virtual Machine has to first create a String object with the
       "MyString" String literal; then, the String constructor takes in this
-      String object to construct a new String object. After, the variable s is 
-      initialized with a reference to the latter constructed String object.
-          
+      String object to construct a second String object. After, the variable s 
+      is initialized with a reference to the latter constructed String object.
+ 
