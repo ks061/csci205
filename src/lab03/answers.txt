@@ -78,9 +78,10 @@ Request your fibonacci number:
 Recursive fib: 102334155 (Duration: 1014.484577 ms)
 Non-recursive fib: 102334155 (Duration: 0.030411 ms)
 
-Despite trying very large numbers, including 5-6 digit numbers, the program
-would not crash. A number of other people in the class have also 
-reported having this issue.
+Despite inputting large numbers, the program would not crash on my local system nor on the remote Bucknell Linux server.
+The program would simply stall for hours (particularly when inputting
+any number 48 or higher). A number of other people in the class have also reported having 
+this issue.
 
 Recursion is computationally more expensive because (particularly at larger 
 values of n) the recursive calls have a substantial amount of repeated
