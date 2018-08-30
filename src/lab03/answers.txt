@@ -92,3 +92,29 @@ a more efficient complexity of O(n) because all of the variable
 assignments and/or summation is O(1), which takes place n times (from
 count = 0 to count = n).
 
+#### Exercise 5 ####
+(1.1) 8
+      (an int)
+(1.2) 13
+      (an int)
+(1.3) HelloCSCI 205
+      (a String object containing the value above)
+(1.4) llo
+      (a String object containing the value above)
+(1.5) true
+      (a boolean)
+(1.6) 2
+      (a char)
+(1.7) 7
+      (an int)
+(1.8) HELLO
+      (a String object containing the value above)
+(1.9) CSCI200
+      (a String object containing the value above)
+(1.0) a) is more efficient because the String variable is directly initialized
+      with a reference to the "MyString" String literal. In option b), the
+      Java Virtual Machine has to first create a String object with the
+      "MyString" String literal; then, the String constructor takes in this
+      String object to construct a new String object. After, the variable s is 
+      initialized with a reference to the latter constructed String object.
+          
