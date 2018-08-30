@@ -111,7 +111,7 @@ count = 0 to count = n).
       (a String object containing the value above)
 (1.9) CSCI200
       (a String object containing the value above)
-(1.0) a) is more efficient because the String variable is directly initialized
+(1.10) a) is more efficient because the String variable is directly initialized
       with a reference to the "MyString" String literal. In option b), the
       Java Virtual Machine has to first create a String object with the
       "MyString" String literal; then, the String constructor takes in this
