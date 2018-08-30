@@ -59,5 +59,36 @@ $ git log --oneline --decorate --all
 9d8d735 more work
 5defbce Init commit
 
-#### Q7 ####
+#### Exercise 4: Performance comparison ####
+$ java lab03/Fibonacci
+Request your fibonacci number:
+20
+Recursive fib: 6765 (Duration: 2.050663 ms)
+Non-recursive fib: 6765 (Duration: 0.010394 ms)
+
+$ java lab03/Fibonacci
+Request your fibonacci number:
+30
+Recursive fib: 832040 (Duration: 13.58317 ms)
+Non-recursive fib: 832040 (Duration: 0.012074 ms)
+
+$ java lab03/Fibonacci
+Request your fibonacci number:
+40
+Recursive fib: 102334155 (Duration: 1014.484577 ms)
+Non-recursive fib: 102334155 (Duration: 0.030411 ms)
+
+Despite trying very large numbers, including 5-6 digit numbers, the program
+would not crash. A number of other people in the class have also 
+reported having this issue.
+
+Recursion is computationally more expensive because (particularly at larger 
+values of n) the recursive calls have a substantial amount of repeated
+calculations of 'lower n' Fibonacci numbers, which, in turn, have their
+own set of repeated calculations of 'lower n.' This 'tree' of repeated
+calculations can demonstrate how the complexity of the recursive algorithm
+has a complexity of O(2^n). On the other hand, the iterative algorithm has
+a more efficient complexity of O(n) because all of the variable 
+assignments and/or summation is O(1), which takes place n times (from
+count = 0 to count = n).
 
