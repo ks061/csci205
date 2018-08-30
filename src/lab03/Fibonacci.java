@@ -7,7 +7,7 @@
  * Name: Kartikeya Sharma
  * Date: 08/29/2018
  *
- * Lab / Assignment: Lab 04, Exercise 4
+ * Lab / Assignment: Lab 03, Exercise 4
  *
  * Description: Computing the nth Fibonacci number using recursion and iteration.
  *
