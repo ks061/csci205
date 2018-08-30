@@ -1,4 +1,4 @@
-/******************************************
+/*******************************************
  * CSCI205 - Software Engineering and Design
  * Fall 2018
  * Instructor: Professor Dancy
@@ -119,7 +119,6 @@ public class StringChallenge {
     public static int sumNumbersInString(String s) {
         String[] sList = s.split("\\D");
         int sum = 0;
-
         for (String str : sList) {
             if (!str.equals(""))
                 sum += Integer.parseInt(str);
@@ -138,7 +137,7 @@ public class StringChallenge {
         char[] cList = s.toCharArray();
         int sum = 0;
         for (char c : cList) {
-                sum += (int) c;
+            sum += (int) c;
         }
         return sum;
     } 
