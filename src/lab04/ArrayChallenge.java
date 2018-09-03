@@ -9,7 +9,7 @@
 *
 * Lab / Assignment: Lab 04, Exercise 2
 *
-* Description: This contains the ArrayChallenge class, which tackles
+* Description: This file contains the ArrayChallenge class, which tackles
 *              the Java array challenges presented within Exercise 2
 *              in Lab 04.
 * 
