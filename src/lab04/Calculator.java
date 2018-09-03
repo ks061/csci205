@@ -18,13 +18,38 @@
 package lab04;
 
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 /**
  * The Calculator class contains a main method, which
  * runs the calculator program.
  */
 public class Calculator {
-    /*
+    /**
+     * This method produces the pattern template for the DecimalFormat
+     * class to process based on the inputted double.
+     *
+     * @param n Inputted double
+     * @return A string representing the pattern template for the
+     *         DecimalFormat class to process based on <code>n</code>.
+     */
+    public static String patternGenerator(double n) {
+        boolean isDecimal = true;
+        if((n - (long) n) == 0)
+            isDecimal = false;
+        String strInput = Double.toString(n);
+        String output = "";
+        for (int i = strInput.length()-1; i > 0; i--) {
+            if ((strInput.length()-1-i)%3 == 0 && (strInput.length()-1-i != 0))
+                output = "," + output;
+            output = "#" + output;
+        }
+        if (isDecimal)
+            output += ".##";
+        return output;     
+    }
+
+    /**
      * This is the main method of the class, which
      * runs the calculator program.
      */
@@ -55,36 +80,41 @@ public class Calculator {
                 System.out.println("ERROR: Cannot parse operand 2");
                 continue;
             }
+            double result = 0;
+            String operation = "";
             switch(operator) {
                 case "+": 
-                    double sum = firstNum + secondNum;
-                    System.out.println("The sum is " + sum);
+                    result = firstNum + secondNum;
+                    operation = "sum";
                     break;
                 case "-":
-                    double difference = firstNum - secondNum;
-                    System.out.println("The difference is " + difference);
+                    result = firstNum - secondNum;
+                    operation = "difference";
                     break;
                 case "*":
-                    double product = firstNum * secondNum;
-                    System.out.println("The product is " + product);
+                    result = firstNum * secondNum;
+                    operation = "product";
                     break;
                 case "/":
-                    double quotient = firstNum / secondNum;
-                    System.out.println("The quotient is " + quotient);
+                    result = firstNum / secondNum;
+                    operation = "quotient";
                     break;
                 case "%":
-                    double remainder = firstNum % secondNum;
-                    System.out.println("The remainder is " + remainder);
+                    result = firstNum % secondNum;
+                    operation = "remainder";
                     break;
                 case "^":
-                    double power = Math.pow(firstNum, secondNum);
-                    System.out.println("The power is " + power);
+                    result = Math.pow(firstNum, secondNum);
+                    operation = "power";
                     break;
                 default:
                     System.out.println("ERROR: " + operator + " is not a valid " +
                                        "operator.");
                     continue;
             }
+            DecimalFormat formatter = new DecimalFormat(patternGenerator(result));
+            String outputtedResult = formatter.format(result);
+            System.out.println("The " + operation + " is " + outputtedResult);
             System.out.print("Try again? [y | n] ");
             userInputKeepLooping = input.next();
             if (!userInputKeepLooping.toLowerCase().equals("y")) {
