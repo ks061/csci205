@@ -75,4 +75,88 @@ $ git log --graph --all --oneline --decorate
 * 9d8d735 more work
 * 5defbce Init commit
 
+#### Exercise 4 ####
 
+###################
+# MAX_NUM = 10000 #
+###################
+
+Generating 10000 numbers...
+sd:  1.00729569
+TIME:      1052.284 usec
+alt_sd:    1.00729569
+TIME:      472.162 usec
+alt_sd computed in 44.87% of the time of sd
+
+####################
+# MAX_NUM = 100000 #
+####################
+
+Generating 100000 numbers...
+sd:  0.99939231
+TIME:      9802.435 usec
+alt_sd:    0.99939231
+TIME:      4730.225 usec
+alt_sd computed in 48.26% of the time of sd
+
+#####################
+# MAX_NUM = 1000000 #
+#####################
+
+Generating 1000000 numbers...
+sd:  0.99900665
+TIME:      24146.013 usec
+alt_sd:    0.99900665
+TIME:      17735.156 usec
+alt_sd computed in 73.45% of the time of sd
+
+#####################
+# MAX_NUM = 5000000 #
+#####################
+
+Generating 5000000 numbers...
+sd:  1.00004908
+TIME:      52677.178 usec
+alt_sd:    1.00004908
+TIME:      27934.883 usec
+alt_sd computed in 53.03% of the time of sd
+
+################################
+# Why does the second approach #
+# for computing the standard   #
+# deviation perform so much    #
+# faster than the first        #
+# appraoch? Justify your       #
+# answer.                      #
+################################
+
+n is the amount of entries
+in the array.
+The second approach involves
+iterating through the loop n times,
+adding n values in the inputted
+array of double values to the mean
+variable (prior to dividing the mean
+variable by n), multiplying each
+of n values of the inputted array of 
+double values by itself to get the square
+of each value, and adding n such products
+to the alt_stdev variable. This would estimate
+to around 4n operations for the
+second approach; the remainder of the operations
+are O(1) in comparison. It should be noted
+that because the for each loop/iteration involves
+"going through" n items in an array, this is 
+considered to be roughly n operations.
+The first approach involves iterating
+through the loop n times, adding n values in
+the inputted array of double values to the mean
+variable (prior to dividing the mean variable by
+n), iterating through the loop n times, 
+subtracting the mean from n values twice, 
+multiplying this difference by itself, and adding
+this product to the stdev variable. This would estimate
+to around 7n operations for the first approach; the remainder
+of the operations are O(1) in comparison. Assuming that n is very
+large, the second approach is about 3n operations less than the
+first approach, making the second approach considerably faster. 
