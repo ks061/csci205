@@ -18,6 +18,10 @@
  */
 package lab05;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * The Hello class, which is a programming aid in becoming accustomed to the
  * Java IDE in NetBeans.
@@ -28,12 +32,23 @@ package lab05;
 public class Hello {
 
     /**
-     * Runs when file called with java command in command line.
+     * Greets the user and generates random numbers.
      *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         System.out.println("Becoming a good programmer takes practice.");
+        System.out.println("Hello. What is your name? ");
+        Scanner input = new Scanner(System.in);
+        String name = input.next();
+        System.out.println(name + ", becoming a good programmer takes practice.");
+
+        Random rand = new Random();
+        int[] x = new int[10];
+        for (int i = 0; i <= 9; i++) {
+            x[i] = rand.nextInt(100);
+        }
+        System.out.println(Arrays.toString(x));
     }
 
 }
