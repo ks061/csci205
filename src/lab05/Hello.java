@@ -31,6 +31,8 @@ import java.util.Scanner;
  */
 public class Hello {
 
+    private static final int NUM_INTS = 10;
+
     /**
      * Greets the user and generates random numbers.
      *
@@ -44,7 +46,7 @@ public class Hello {
         System.out.println(name + ", becoming a good programmer takes practice.");
 
         Random rand = new Random();
-        int[] x = new int[10];
+        int[] x = new int[NUM_INTS];
         for (int i = 0; i <= 9; i++) {
             x[i] = rand.nextInt(100);
         }
