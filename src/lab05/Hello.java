@@ -23,8 +23,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * The Hello class, which is a programming aid in becoming accustomed to the
- * Java IDE in NetBeans.
+ * The Hello class is a programming aid in becoming accustomed to the Java IDE
+ * in NetBeans.
  *
  * @author Kartikeya Sharma
  * @version 0.1
