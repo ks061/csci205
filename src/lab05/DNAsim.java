@@ -20,7 +20,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * The DNAism class generates or prints information about DNA sequences.
+ * The DNAsim class generates or prints information about DNA sequences.
  *
  * @author Kartikeya Sharma
  * @version 0.1
