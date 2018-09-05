@@ -71,9 +71,9 @@ public class Hello {
      * @see Scanner
      */
     private static void greetUser() {
-        System.out.println("Hello. What is your name? ");
-        Scanner input = new Scanner(System.in);
-        String name = input.next();
+        System.out.print("Hello. What is your name? ");
+        Scanner in = new Scanner(System.in);
+        String name = in.next();
         System.out.println(name + ", becoming a good programmer takes practice.");
     }
 
