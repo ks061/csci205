@@ -245,9 +245,9 @@ public class CashRegister {
     public String toString() {
         String output;
         output = this.sName
-                 + ":  drawer: $"
+                 + ": drawer: $"
                  + String.format("%.2f", this.cashInDrawer)
-                 + "  ";
+                 + " ";
         if (this.isInTransaction == true) {
             output += "CURRENT TRANS: #items: "
                       + this.numItemsInTrans
