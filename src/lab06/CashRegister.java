@@ -90,8 +90,8 @@ public class CashRegister {
     }
 
     /**
-     * Resets the amount of cash in the drawer on a given day to 0 and returns
-     * the amount of cash in the drawer prior to the reset
+     * Sets the amount of cash in the drawer on a given day to 0 and gets the
+     * amount of cash in the drawer prior to the reset
      *
      * @return Amount of cash left in the drawer at the end of a given day
      */
@@ -107,8 +107,8 @@ public class CashRegister {
      * not currently processing another transaction, and starts a transaction if
      * the cash register is ready to do so
      *
-     * @return true if there is cash in the drawer and the cash register is
-     * currently not processing a transaction; otherwise false
+     * @return true if there is cash in the drawer and the cash register is not
+     * currently processing a transaction; otherwise false
      */
     public boolean startTransaction() {
         if (this.cashInDrawer > 0 && this.isInTransaction == false) {
@@ -121,7 +121,8 @@ public class CashRegister {
     /**
      * Informs whether or not the cash register is ready to end a transaction,
      * i.e. no money is owed for the current transaction and the cash register
-     * is currently processing a transaction, and ends a transaction if the cash
+     * is currently processing a transaction, and ends a transaction, including
+     * resetting current transaction-specific instance variables, if the cash
      * register is ready to do so
      *
      * @return true if no money is owed for the current transaction and the cash
@@ -168,9 +169,9 @@ public class CashRegister {
     }
 
     /**
-     * Gets the total amount paid for the current transaction
+     * Gets the total amount paid by the customer for the current transaction
      *
-     * @return total amount paid for the current transaction
+     * @return total amount paid by the customer for the current transaction
      */
     public double getAmountPaid() {
         return this.amountPaid;
@@ -220,7 +221,9 @@ public class CashRegister {
      *
      * @param amountPaid amount customer is paying towards the current
      * transaction
-     * @return change due to the customer
+     * @return change due to the customer, i.e. a positive value if the customer
+     * overpaid, 0 if the customer paid the exact amount due, or a negative
+     * value if the customer underpaid
      */
     public double collectPayment(double amountPaid) {
         this.amountPaid += amountPaid;
