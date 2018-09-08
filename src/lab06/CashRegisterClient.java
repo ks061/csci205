@@ -1,19 +1,24 @@
 /* *****************************************
-* CSCI205 - Software Engineering and Design
-* Fall 2018
-*
-* Name: Kartikeya Sharma
-* Date: Sep 8, 2018
-* Time: 2:02:06 PM
-*
-* Project: csci205
-* Package: lab06
-* File: CashRegisterClient
-* Description: This file contains the driver
+ * CSCI205 - Software Engineering and Design
+ * Fall 2018
+ *
+ * Name: Kartikeya Sharma
+ * Date: Sep 8, 2018
+ * Time: 2:02:06 PM
+ *
+ * Project: csci205
+ * Package: lab06
+ * File: CashRegisterClient
+ * Description: This file contains the driver
                program to test the CashRegister
                class.
-*
-* ****************************************
+ * Disclaimer:  I have not created the main
+               method. It was provided in the
+               Lab 06 assignment within the
+               CSCI 205 course in the Fall 2018
+               semester at Bucknell University.
+ *
+ * ****************************************
  */
 package lab06;
 
@@ -21,11 +26,13 @@ package lab06;
  * CashRegisterClient contains the driver program to test the CashRegister
  * class.
  *
- * @author Kartikeya Sharma
+ * @author CSCI 205, Fall 2018, Bucknell University
  */
 public class CashRegisterClient {
 
     /**
+     * The driver program to test the CashRegister class.
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {

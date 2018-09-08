@@ -1,21 +1,21 @@
 /* *****************************************
-* CSCI205 - Software Engineering and Design
-* Fall 2018
-*
-* Name: Kartikeya Sharma
-* Date: Sep 8, 2018
-* Time: 12:53:40 AM
-*
-* Project: csci205
-* Package: lab06
-* File: CashRegister
-* Description: This file represents the CashRegister class,
+ * CSCI205 - Software Engineering and Design
+ * Fall 2018
+ *
+ * Name: Kartikeya Sharma
+ * Date: Sep 8, 2018
+ * Time: 12:53:40 AM
+ *
+ * Project: csci205
+ * Package: lab06
+ * File: CashRegister
+ * Description: This file represents the CashRegister class,
                which simulates the properties and functionalities
                of a cash register found in a store as directed
                through the instruction given in the Lab 06
                assignment.
-*
-* ****************************************
+ *
+ * ****************************************
  */
 package lab06;
 
