@@ -10,10 +10,10 @@
  * Package: lab07
  * File: CashRegister
  * Description: This file represents the CashRegister class,
-               which simulates the properties and functionalities
-               of a cash register found in a store as directed
-               through the instruction given in the Lab 06
-               assignment.
+                which simulates the properties and functionalities
+                of a cash register found in a store as directed
+                through the instruction given in the Lab 06 and Lab 07
+                assignments.
  *
  * ****************************************
  */
@@ -66,7 +66,8 @@ public class CashRegister {
     private ArrayList<Double> itemList;
 
     /**
-     * List of all transactions during the current day
+     * List of all transactions during the current day (or previous day if the
+     * cash register is currently closed)
      */
     private ArrayList<Double> transList;
 
@@ -79,9 +80,10 @@ public class CashRegister {
         this.transTotal = 0;
         this.numItemsInTrans = 0;
         this.amountPaid = 0;
+        this.sName = "Default";
+
         this.itemList = new ArrayList<>();
         this.transList = new ArrayList<>();
-        this.sName = "Default";
     }
 
     /**
@@ -95,10 +97,9 @@ public class CashRegister {
     }
 
     /**
-     * Sets the amount of cash in the drawer with an inputted amount for the
-     * given day
+     * Sets the amount of cash in the drawer for the given day
      *
-     * @param initCash amount of cash the drawer starts with on a given day
+     * @param initCash amount of cash drawer starts with on a given day
      */
     public void startDay(double initCash) {
         this.itemList.clear();
@@ -108,9 +109,9 @@ public class CashRegister {
 
     /**
      * Sets the amount of cash in the drawer on a given day to 0 and gets the
-     * amount of cash in the drawer prior to the reset
+     * amount of cash in the drawer (prior to the reset)
      *
-     * @return Amount of cash left in the drawer at the end of a given day
+     * @return amount of cash left in the drawer at the end of a given day
      */
     public double finishDay() {
         double cashInDrawerDayEnd = this.cashInDrawer;
@@ -147,8 +148,6 @@ public class CashRegister {
      */
     public boolean finishTransaction() {
         if (getAmountOwed() == 0 && this.isInTransaction == true) {
-            this.transList.add(transTotal);
-
             this.amountPaid = 0;
             this.transTotal = 0;
             this.numItemsInTrans = 0;
@@ -159,8 +158,7 @@ public class CashRegister {
     }
 
     /**
-     * Adds the inputted price to the total transaction amount and increments
-     * the number of items purchased
+     * Adds an item to the current transaction
      *
      * @param amountItem price of the item being scanned
      */
@@ -236,14 +234,15 @@ public class CashRegister {
     }
 
     /**
-     * Processes customer payment towards the current transaction and gets the
-     * change due to the customer
+     * Processes customer payment towards the current transaction, which will be
+     * considered complete if enough is paid to cover the total transaction
+     * amount, and gets the change due to the customer
      *
      * @param amountPaid amount customer is paying towards the current
      * transaction
-     * @return change due to the customer, i.e. a positive value if the customer
-     * overpaid, 0 if the customer paid the exact amount due, or a negative
-     * value if the customer underpaid
+     * @return change due to the customer, i.e. positive value if customer
+     * overpaid, 0 if customer paid exact amount due, or negative value if
+     * customer underpaid
      */
     public double collectPayment(double amountPaid) {
         this.amountPaid += amountPaid;
@@ -254,6 +253,10 @@ public class CashRegister {
         if (changeDue > 0) {
             this.amountPaid -= changeDue;
             this.cashInDrawer -= changeDue;
+        }
+
+        if (changeDue >= 0) {
+            this.transList.add(transTotal);
         }
 
         return changeDue;
@@ -304,7 +307,7 @@ public class CashRegister {
     /**
      * Gets the number of items purchased during the current work day
      *
-     * @return number of items purchased during the current work day
+     * @return number of items purchased during current work day
      */
     public int getNumItemsToday() {
         return this.itemList.size();
@@ -337,11 +340,11 @@ public class CashRegister {
     }
 
     /**
-     * Gets the average total amount across the transactions that the register
-     * has processed during the current work day
+     * Gets the average total transaction amount across the transactions that
+     * the register has processed during the current work day
      *
-     * @return the average transaction amount processed by the register during
-     * the current work day
+     * @return the average total transaction amount processed by the register
+     * during the current work day
      */
     public double getAveTransToday() {
         double sumAmounts = 0;
