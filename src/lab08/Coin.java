@@ -22,5 +22,33 @@ package lab08;
  * @author Kartikeya Sharma
  */
 enum Coin {
-    NICKEL, DIME, QUARTER;
+    /**
+     * Enumerated types of coins
+     */
+    NICKEL(0.05),
+    DIME(0.10),
+    QUARTER(0.25);
+
+    /**
+     * Dollar value associated with enumerated type
+     */
+    private double value;
+
+    /**
+     * Constructs an enumerated type with an associated dollar value
+     *
+     * @param value dollar value associated with enumerated type
+     */
+    private Coin(double value) {
+        this.value = value;
+    }
+
+    /**
+     * Gets the dollar value of the enum type
+     *
+     * @return dollar value of the enum type
+     */
+    public double getValue() {
+        return this.value;
+    }
 }
