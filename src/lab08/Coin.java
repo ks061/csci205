@@ -25,9 +25,11 @@ enum Coin {
     /**
      * Enumerated types of coins
      */
+    PENNY(0.01),
     NICKEL(0.05),
     DIME(0.10),
-    QUARTER(0.25);
+    QUARTER(0.25),
+    DOLLAR(1.00);
 
     /**
      * Dollar value associated with enumerated type
