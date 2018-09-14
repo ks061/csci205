@@ -106,7 +106,7 @@ public class CoinCollection {
     public String toStringNewLine() {
         String output = "";
         for (Coin c : Coin.values()) {
-            output += c + ": " + getCount(c) + " " + "\n";
+            output += c + ":" + getCount(c) + "\n";
         }
         output += "TOTAL = $" + String.format("%.2f", this.getTotal()) + "\n";
         return output;
