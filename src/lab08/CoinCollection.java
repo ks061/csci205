@@ -97,9 +97,25 @@ public class CoinCollection {
     }
 
     /**
+     * Gets a string representation of the coin collection with new line
+     * characters
+     *
+     * @return string representation of the coin collection with new line
+     * characters
+     */
+    public String toStringNewLine() {
+        String output = "";
+        for (Coin c : Coin.values()) {
+            output += c + ": " + getCount(c) + " " + "\n";
+        }
+        output += "TOTAL = $" + String.format("%.2f", this.getTotal()) + "\n";
+        return output;
+    }
+
+    /**
      * Main program - designed to test out the CoinCollection class
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         CoinCollection myCoins = new CoinCollection();
 
         myCoins.addCoins(Coin.NICKEL, 5);
