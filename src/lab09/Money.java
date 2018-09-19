@@ -15,11 +15,21 @@ package lab09;
  * @author Rick Zaccone
  */
 public enum Money {
+    /**
+     * Each type of currency initialized with its value and name/label
+     */
     PENNY(0.01, "penny"), NICKEL(0.05, "nickel"), DIME(0.1, "dime"), QUARTER(
             0.25, "quarter"), HALF(0.5, "half"), DOLLAR(1.0, "dollar"), FIVE(
             5.0, "five"), TEN(10.0, "ten"), TWENTY(20.0, "twenty");
 
+    /**
+     * value of each type of currency
+     */
     private double value;
+
+    /**
+     * name/label of each type of currency
+     */
     private String name;
 
     /**

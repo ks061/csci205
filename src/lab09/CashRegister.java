@@ -3,7 +3,15 @@
  *
  * Lab 09 - Learning how to use JUnit.
  *
- * @author Brian King, Rick Zaccone
+ * Date: Sep 18, 2018
+ * Time: 7:59:21 PM
+ *
+ * Project: csci205
+ * Package: lab09
+ * File: CashRegister
+ * Description: This file contains the CashRegister class, which simulates a cash register.
+ *
+ * @author Brian King, Rick Zaccone (Modified by: Kartikeya Sharma)
  */
 package lab09;
 
@@ -12,8 +20,10 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * A custom exception thrown if the cash register tries to give change before
+ * A custom exception is thrown if the cash register tries to give change before
  * enough money is collected
+ *
+ * @author Kartikeya Sharma
  */
 class ChangeException extends Exception {
 
@@ -30,7 +40,7 @@ class ChangeException extends Exception {
  * a time, where a transaction consists of a list of items purchased. This
  * register only logs the amount of each purchase in a single transaction.
  *
- * @author Prof. Rick Zaccone and Brian King
+ * @author Prof. Rick Zaccone and Brian King (Modified by Kartikeya Sharma)
  */
 public class CashRegister {
 
@@ -150,6 +160,15 @@ public class CashRegister {
         return change;
     }
 
+    /**
+     * Compares an inputted Object to this object to see if they are either the
+     * same object or are both of the same class and share equivalent instance
+     * fields
+     *
+     * @param obj - inputted Object to be compared to this object
+     * @return Returns true if this object and <code> obj </code> are the same
+     * object or are both of the same class and share equivalent instance fields
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

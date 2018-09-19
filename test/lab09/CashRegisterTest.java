@@ -9,7 +9,7 @@
  * Project: csci205
  * Package: lab09
  * File: CashRegisterTest
- * Description:
+ * Description: This file contains the CashRegisterTest class, which uses the JUnit testing framework to test the CashRegister class.
  *
  * ****************************************
  */
@@ -19,6 +19,8 @@ import java.util.LinkedList;
 import junit.framework.TestCase;
 
 /**
+ * CashRegisterTest uses the JUnit testing framework to test the CashRegister
+ * class.
  *
  * @author Kartikeya Sharma
  */
@@ -29,19 +31,40 @@ public class CashRegisterTest extends TestCase {
      */
     static final double EPSILON = 1.0E-12;
 
+    /**
+     * Instances of CashRegister to use in the JUnit testing methods
+     */
     private CashRegister instance;
     private CashRegister other_instance;
 
+    /**
+     * Creates a test for CashRegister with an inputted name/label
+     *
+     * @param testName - name of the test
+     */
     public CashRegisterTest(String testName) {
         super(testName);
     }
 
+    /**
+     * Runs prior to each test; aids in setting up instances needed for testing.
+     *
+     * @throws Exception - thrown if an unexpected exception arises during the
+     * setup
+     */
     @Override
     protected void setUp() throws Exception {
         super.setUp();
         instance = new CashRegister();
     }
 
+    /**
+     * Runs after each test; aids in clearing instances or resetting instances
+     * to null after testing.
+     *
+     * @throws Exception - thrown if an unexpected exception arises during the
+     * setup
+     */
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();

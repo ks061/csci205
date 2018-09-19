@@ -9,7 +9,7 @@
  * Project: csci205
  * Package: lab09
  * File: ExceptionExample
- * Description:
+ * Description: This file contains ExceptionExample, which contains an example of an exception
  *
  * ****************************************
  */
@@ -19,11 +19,15 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
+ * ExceptionExample contains an example of an exception
  *
- * @author kartikeyasharma
+ * @author Kartikeya Sharma
  */
 public class ExceptionExample {
 
+    /**
+     * Size to initialize the test array with
+     */
     public static final int SIZE = 10;
 
     /**
