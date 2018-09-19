@@ -30,6 +30,7 @@ public class CashRegisterTest extends TestCase {
     static final double EPSILON = 1.0E-12;
 
     private CashRegister instance;
+    private CashRegister other_instance;
 
     public CashRegisterTest(String testName) {
         super(testName);
@@ -185,9 +186,9 @@ public class CashRegisterTest extends TestCase {
     }
 
     /**
-     * Test if an IllegalArgumentException is properly thrown in
-     * collectPayment() if a negative amount of currency is attempted to be paid
-     * at the cash register
+     * Test if an IllegalArgumentException is properly thrown in collectPayment
+     * method if a negative amount of currency is attempted to be paid at the
+     * cash register
      */
     public void testCollectPaymentException() {
         System.out.println("IllegalArgumentException thrown in collectPayment");
@@ -203,8 +204,8 @@ public class CashRegisterTest extends TestCase {
     }
 
     /**
-     * Test if a ChangeException in giveChange() is properly thrown when not
-     * enough payment has been collected at the time when the transaction is
+     * Test if a ChangeException in giveChange method is properly thrown when
+     * not enough payment has been collected at the time when the transaction is
      * being finalized (cashier gives back customer change)
      */
     public void testGiveChangeException() {
@@ -238,5 +239,21 @@ public class CashRegisterTest extends TestCase {
             fail("Improper checking for a high scanItem()");
         } catch (IllegalArgumentException expected) {
         }
+    }
+
+    /**
+     * Test of equals method, of class CashRegister.
+     */
+    public void testEquals() {
+        other_instance = new CashRegister();
+        assertTrue(instance.equals(other_instance));
+        instance.scanItem(1.34);
+        instance.scanItem(7.12);
+        instance.collectPayment(Money.DOLLAR, 1);
+        assertFalse(instance.equals(other_instance));
+        other_instance.scanItem(1.34);
+        other_instance.scanItem(7.12);
+        other_instance.collectPayment(Money.DOLLAR, 1);
+        assertTrue(instance.equals(other_instance));
     }
 }

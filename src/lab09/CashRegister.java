@@ -9,6 +9,7 @@ package lab09;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * A custom exception thrown if the cash register tries to give change before
@@ -147,5 +148,31 @@ public class CashRegister {
         totalTransaction = 0;
         paymentCollected = 0;
         return change;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CashRegister other = (CashRegister) obj;
+        if (Double.doubleToLongBits(this.totalTransaction) != Double.doubleToLongBits(
+                other.totalTransaction)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.paymentCollected) != Double.doubleToLongBits(
+                other.paymentCollected)) {
+            return false;
+        }
+        if (!Objects.equals(this.listOfItemPrices, other.listOfItemPrices)) {
+            return false;
+        }
+        return true;
     }
 }
