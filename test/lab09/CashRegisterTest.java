@@ -32,10 +32,9 @@ public class CashRegisterTest extends TestCase {
     static final double EPSILON = 1.0E-12;
 
     /**
-     * Instances of CashRegister to use in the JUnit testing methods
+     * Instance of CashRegister to use in the JUnit testing methods
      */
     private CashRegister instance;
-    private CashRegister other_instance;
 
     /**
      * Creates a test for CashRegister with an inputted name/label
@@ -268,7 +267,7 @@ public class CashRegisterTest extends TestCase {
      * Test of equals method, of class CashRegister.
      */
     public void testEquals() {
-        other_instance = new CashRegister();
+        CashRegister other_instance = new CashRegister();
         assertTrue(instance.equals(other_instance));
         instance.scanItem(1.34);
         instance.scanItem(7.12);

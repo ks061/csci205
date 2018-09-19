@@ -45,7 +45,7 @@ class ChangeException extends Exception {
 public class CashRegister {
 
     /**
-     * Maximum price of an item that a scanner is permitted to scan.
+     * Maximum price of an item that a scanner is permitted to scan
      */
     private static double MAX_ITEM_PRICE = 1000.0;
 
@@ -104,7 +104,8 @@ public class CashRegister {
     /**
      * Records the sale of an item in a transaction.
      *
-     * @param price the price of the item. Precondition: price >= 0
+     * @param price the price of the item. Precondition: price >= 0 or price < <code> MAX_ITEM_PRICE
+     * </code>
      */
     public void scanItem(double price) {
         // First, check for a valid price
