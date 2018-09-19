@@ -29,6 +29,8 @@ public class CashRegisterTest extends TestCase {
      */
     static final double EPSILON = 1.0E-12;
 
+    private CashRegister instance;
+
     public CashRegisterTest(String testName) {
         super(testName);
     }
@@ -36,11 +38,13 @@ public class CashRegisterTest extends TestCase {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
+        instance = new CashRegister();
     }
 
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
+        instance = null;
     }
 
     /**
@@ -48,7 +52,6 @@ public class CashRegisterTest extends TestCase {
      */
     public void testGetPurchaseCount() {
         System.out.println("getPurchaseCount");
-        CashRegister instance = new CashRegister();
 
         // Test the initial state. It should have NO items
         assertEquals(0, instance.getPurchaseCount());
@@ -66,7 +69,6 @@ public class CashRegisterTest extends TestCase {
      */
     public void testGetListOfPurchases() {
         System.out.println("getListOfPurchases");
-        CashRegister instance = new CashRegister();
 
         // Test the initial state. It should have NO items
         assertTrue(
@@ -88,7 +90,6 @@ public class CashRegisterTest extends TestCase {
      */
     public void testGetTransactionTotal() {
         System.out.println("getTransactionTotal");
-        CashRegister instance = new CashRegister();
         assertEquals(0, instance.getTransactionTotal(), EPSILON);
 
         // Now, set up a test of 2 items
@@ -104,7 +105,6 @@ public class CashRegisterTest extends TestCase {
      */
     public void testGetPaymentCollected() {
         System.out.println("getPaymentCollected");
-        CashRegister instance = new CashRegister();
         assertEquals(0.0, instance.getPaymentCollected());
 
         // Now, set up a test of 2 items
@@ -158,7 +158,6 @@ public class CashRegisterTest extends TestCase {
      */
     public void testGiveChange() {
         System.out.println("giveChange");
-        CashRegister instance = new CashRegister();
         double expResult;
         double result;
 
@@ -192,7 +191,6 @@ public class CashRegisterTest extends TestCase {
      */
     public void testCollectPaymentException() {
         System.out.println("IllegalArgumentException thrown in collectPayment");
-        CashRegister instance = new CashRegister();
 
         instance.scanItem(0.55);
         instance.scanItem(1.27);
@@ -211,7 +209,6 @@ public class CashRegisterTest extends TestCase {
      */
     public void testGiveChangeException() {
         System.out.println("ChangeException thrown in giveChange");
-        CashRegister instance = new CashRegister();
 
         instance.scanItem(0.55);
         instance.scanItem(1.27);
@@ -229,7 +226,6 @@ public class CashRegisterTest extends TestCase {
      * IllegalArgumentException.
      */
     public void testScanItemIllegalArgumentException() {
-        CashRegister instance = new CashRegister();
         boolean wasThrown = false;
         try {
             instance.scanItem(-0.5);
