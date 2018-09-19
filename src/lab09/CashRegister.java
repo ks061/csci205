@@ -118,6 +118,8 @@ public class CashRegister {
      *
      * @param moneyType the moneyType of the monetary units in the payment
      * @param unitCount the number of monetary units
+     * @throwns IllegalArgumentException - thrown if a negative amount of
+     * currency is passed in for <code> unitCount </code>
      */
     public void collectPayment(Money moneyType, int unitCount) {
         if (unitCount < 0) {
@@ -146,31 +148,4 @@ public class CashRegister {
         paymentCollected = 0;
         return change;
     }
-
-    public static void main(String[] args) {
-        CashRegister myRegister = new CashRegister();
-        myRegister.scanItem(0.55);
-        myRegister.scanItem(1.27);
-        System.out.println("Purchases: " + myRegister.getListOfPurchases());
-        System.out.println("Expected: [0.55, 1.27]");
-        myRegister.collectPayment(Money.DOLLAR, 1);
-        myRegister.collectPayment(Money.QUARTER, 3);
-        myRegister.collectPayment(Money.NICKEL, 2);
-        System.out.println("Payment made: " + myRegister.getPaymentCollected());
-        System.out.println("Expected: 1.85");
-
-        try {
-            double myChange = myRegister.giveChange();
-            System.out.println("Change: " + myChange);
-            System.out.println("Expected: 0.03");
-        } catch (ChangeException changeException) {
-            System.err.println(changeException.getMessage());
-        }
-
-        // Check for a negative amount of currency
-        // myRegister.collectPayment(Money.DOLLAR, -1);
-        // Check for an invalid price
-        // myRegister.scanItem(-0.50);
-    }
-
 }
