@@ -15,7 +15,7 @@
  */
 package lab10;
 
-import java.util.Date;
+import java.text.ParseException;
 
 /**
  * HRDBSystem simulates an HR Database System, including entering in and looking
@@ -27,11 +27,14 @@ public class HRDBSystem {
 
     /**
      * @param args the command line arguments
+     * @throws java.text.ParseException
      */
-    public static void main(String[] args) {
-        Employee emp = new Employee(0, "Brian", "King", 123456789, new Date(),
+    public static void main(String[] args) throws ParseException {
+        Employee emp = new Employee(0, "Brian", "King", 123456789,
+                                    Employee.strToDate("2010-08-20"),
                                     60000);
-        Manager mgr = new Manager(1, "Keith", "Buffinton", 101010101, new Date(),
+        Manager mgr = new Manager(1, "Keith", "Buffinton", 101010101,
+                                  Employee.strToDate("2010-08-20"),
                                   150000, "ENGINEERING");
 
         System.out.println(emp);
