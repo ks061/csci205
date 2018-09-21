@@ -175,25 +175,4 @@ public class Manager extends Employee {
     public String toString() {
         return super.toString() + ",MANAGER," + this.getDeptName();
     }
-
-    /**
-     * Prints a formatted string representation of each manager, including the
-     * manager's first and last name, department name, number of employees the
-     * manager tracks, the employee ID number and name of each employee that
-     * manager tracks, and the employee ID number and name of the manager
-     *
-     * @param m - manager whose formatted string representation will be printed
-     */
-    public static void displayManager(Manager m) {
-        System.out.println(
-                "Manager:     " + m.getFirstName() + " " + m.getLastName());
-        System.out.println("Department:  " + m.getDeptName());
-        System.out.println("# Employees: " + m.numEmployees());
-        for (Employee e : m.getEmpList()) {
-            System.out.print("  ");
-            HRUtility.displayEmployee(e);
-        }
-        HRUtility.displayEmployee(m);
-    }
-
 }

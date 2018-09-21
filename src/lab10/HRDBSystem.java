@@ -81,7 +81,7 @@ public class HRDBSystem {
         ((Manager) mgrList.get(1)).addEmployee(empList.get(5));
 
         for (Employee e : mgrList) {
-            Manager.displayManager((Manager) e);
+            HRUtility.displayManager((Manager) e);
         }
     }
 
