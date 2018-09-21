@@ -33,11 +33,6 @@ import java.util.HashSet;
  */
 public class Employee {
 
-    /**
-     * Date format for Employee class
-     */
-    private static SimpleDateFormat empDateFormat = new SimpleDateFormat(
-            "yyyy-MM-dd");
 
     /**
      * Set of employee IDs
@@ -156,28 +151,6 @@ public class Employee {
         return this.salary;
     }
 
-    /**
-     * Helper method to parse a date string into a date object. This is really
-     * here just to show how to deal with an exception that may be thrown in a
-     * method.
-     *
-     * @param sDate - a date string
-     * @return a <code>Date</code> object
-     * @throws ParseException if the string cannot be parse correctly.
-     */
-    public static Date strToDate(String sDate) throws ParseException {
-        return empDateFormat.parse(sDate);
-    }
-
-    /**
-     * Converts inputted Date object into a String
-     *
-     * @param date - converts this date into a String
-     * @return String representation of <code>date</code>
-     */
-    public static String dateToStr(Date date) {
-        return empDateFormat.format(date);
-    }
 
     /**
      * Return a string representation of the Employee
@@ -188,7 +161,7 @@ public class Employee {
     public String toString() {
         String s = this.empID + "," + this.lastName + "," + this.firstName;
         s += String.format(",%09d", this.ssNum);
-        s += "," + dateToStr(this.hireDate);
+        s += "," + HRUtility.dateToStr(this.hireDate);
         s += String.format(",%.2f", this.salary);
         return s;
     }
