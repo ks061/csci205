@@ -21,8 +21,6 @@ package lab10;
  *
  * @author Brian King
  */
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 
@@ -32,7 +30,6 @@ import java.util.HashSet;
  * @author brk009
  */
 public class Employee {
-
 
     /**
      * Set of employee IDs
@@ -151,9 +148,8 @@ public class Employee {
         return this.salary;
     }
 
-
     /**
-     * Return a string representation of the Employee
+     * Returns a string representation of the Employee
      *
      * @return the String of comma delimited values
      */
@@ -192,6 +188,13 @@ public class Employee {
         return true;
     }
 
+    /**
+     * Generates the first positive number (greater than or equal to 1) that
+     * does not already exist in the list of employee IDs
+     *
+     * @return first positive number not already existing in the list of
+     * employee IDs
+     */
     private static Integer generateID() {
         int id = 1;
         while (setOfIds.contains(id)) {

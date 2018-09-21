@@ -42,19 +42,19 @@ public class HRDBSystem {
 
         mgrList.add(new Manager(0, "Keith", "Buffinton", 101010101,
                                 HRUtility.strToDate("2010-08-20"),
-                                150000, "STAFF"));
+                                150000, "ENGINEERING"));
 
         // Asked to throw IllegalArgumentException in the lab
         try {
             mgrList.add(new Manager(1, "Mick", "Smyer", 121230103,
                                     HRUtility.strToDate(
-                                            "2001-02-19"), 1000000, "H"));
+                                            "2001-02-19"), 1000000, "ADMN"));
         } catch (IllegalArgumentException e) {
         }
 
         mgrList.add(new Manager(1, "Mick", "Smyer", 121230103,
                                 HRUtility.strToDate(
-                                        "2001-02-19"), 1000000, "HR"));
+                                        "2001-02-19"), 1000000, "ADMIN"));
 
         empList.add(new Employee(1, "Brian", "King", 123456789,
                                  HRUtility.strToDate("2010-08-20"),

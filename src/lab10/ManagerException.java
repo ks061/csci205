@@ -22,6 +22,13 @@ package lab10;
  */
 public class ManagerException extends Exception {
 
+    /**
+     * Explicit constructor that initializes the ManagerException exception with
+     * a custom message
+     *
+     * @param message custom message to display to the program user when the
+     * exception arises
+     */
     public ManagerException(String message) {
         super(message);
     }

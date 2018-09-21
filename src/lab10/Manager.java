@@ -140,6 +140,13 @@ public class Manager extends Employee {
         return listOfEmps;
     }
 
+    /**
+     * Removes an employee that this manager keeps track of
+     *
+     * @param emp employee to be removed from the manager's list
+     * @throws ManagerException if <code>emp</code> does not already exist in
+     * the internal list of employees that the manager keeps track of
+     */
     public void removeEmployee(Employee emp) throws ManagerException {
         if (listOfEmps.contains(emp)) {
             listOfEmps.remove(emp);
@@ -150,6 +157,11 @@ public class Manager extends Employee {
         }
     }
 
+    /**
+     * Gets the number of employees that the manager keeps track of
+     *
+     * @return number of employees that the manager keeps track of
+     */
     public int numEmployees() {
         return listOfEmps.size();
     }
@@ -164,6 +176,14 @@ public class Manager extends Employee {
         return super.toString() + ",MANAGER," + this.getDeptName();
     }
 
+    /**
+     * Prints a formatted string representation of each manager, including the
+     * manager's first and last name, department name, number of employees the
+     * manager tracks, the employee ID number and name of each employee that
+     * manager tracks, and the employee ID number and name of the manager
+     *
+     * @param m - manager whose formatted string representation will be printed
+     */
     public static void displayManager(Manager m) {
         System.out.println(
                 "Manager:     " + m.getFirstName() + " " + m.getLastName());
