@@ -34,7 +34,7 @@ public final class HRUtility {
             "yyyy-MM-dd");
 
     /**
-     * Displays one employee's employee ID, first name, last name, and a manager
+     * Prints one employee's employee ID, first name, last name, and a manager
      * tag if the employee is a manager
      *
      * @param emp - employee to be displayed
@@ -51,8 +51,9 @@ public final class HRUtility {
     }
 
     /**
-     * Displays a list of employees, including their employee IDs, first names,
-     * last names, and manager tags for each employee that is a manager
+     * Prints a list of employees, including their employee IDs, first names,
+     * last names, and manager tags for each employee that is a manager (each on
+     * a separate line)
      *
      * @param listOfEmps - list of employees to be displayed
      */
@@ -94,7 +95,8 @@ public final class HRUtility {
      * @param m - manager whose formatted string representation will be printed
      */
     public static void displayManager(Manager m) {
-        System.out.println("Manager:     " + m.getFirstName() + " " + m.getLastName());
+        System.out.println(
+                "Manager:     " + m.getFirstName() + " " + m.getLastName());
         System.out.println("Department:  " + m.getDeptName());
         System.out.println("# Employees: " + m.numEmployees());
         for (Employee e : m.getEmpList()) {

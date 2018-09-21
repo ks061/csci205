@@ -32,7 +32,7 @@ import java.util.HashSet;
 public class Employee {
 
     /**
-     * Set of employee IDs
+     * List of employee IDs
      */
     private static HashSet<Integer> setOfIds = new HashSet<Integer>();
 
@@ -47,7 +47,7 @@ public class Employee {
     private double salary;
 
     /**
-     * Explicit construct to create new employee
+     * Explicit constructor to create new employee
      *
      * @param empID - employee ID
      * @param firstName - employee first name
@@ -127,7 +127,7 @@ public class Employee {
     }
 
     /**
-     * Change the name of the employee
+     * Changes the name of the employee
      *
      * @param first - New first name
      * @param last - New last name
@@ -138,7 +138,7 @@ public class Employee {
     }
 
     /**
-     * Raise the salary by <code>salaryAdj</code> dollars.
+     * Raises the salary by <code>salaryAdj</code> dollars.
      *
      * @param salaryAdj - amount to add to the current salary
      * @return the new salary

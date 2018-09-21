@@ -74,9 +74,9 @@ public class EmployeeTest extends TestCase {
      */
     public void testChangeName() {
         System.out.println("changeName");
-        emp.changeName("Bryan", "King");
+        emp.changeName("Bryan", "Kyng");
         assertTrue(emp.getFirstName().equals("Bryan"));
-        assertTrue(emp.getLastName().equals("King"));
+        assertTrue(emp.getLastName().equals("Kyng"));
     }
 
     /**
@@ -100,7 +100,11 @@ public class EmployeeTest extends TestCase {
         Object obj = new Employee(1, "Brian", "King", 123456789,
                                   HRUtility.strToDate("2010-08-20"),
                                   60000);
-        assertTrue(emp.equals(obj));
+        assertEquals(emp, obj);
+        obj = new Employee(1, "Brian", "King", 123456798,
+                           HRUtility.strToDate("2010-08-20"),
+                           60000);
+        assertFalse(emp.equals(obj));
     }
 
 }
