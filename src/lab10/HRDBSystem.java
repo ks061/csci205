@@ -20,7 +20,8 @@ import java.util.ArrayList;
 
 /**
  * HRDBSystem simulates an HR database system, including entering in and looking
- * up people in the HR database.
+ * up employees, printing information about employees, and assigning employees
+ * to managers.
  *
  * @author Kartikeya Sharma
  */
@@ -32,8 +33,9 @@ public class HRDBSystem {
      *
      * @param args the command line arguments
      * @throws java.text.ParseException
+     * @throws lab10.ManagerException
      */
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, ManagerException {
 
         ArrayList<Employee> mgrList = new ArrayList<>();
         ArrayList<Employee> empList = new ArrayList<>();
@@ -49,6 +51,10 @@ public class HRDBSystem {
                                             "2001-02-19"), 1000000, "H"));
         } catch (IllegalArgumentException e) {
         }
+
+        mgrList.add(new Manager(1, "Mick", "Smyer", 121230103,
+                                HRUtility.strToDate(
+                                        "2001-02-19"), 1000000, "HR"));
 
         empList.add(new Employee(1, "Brian", "King", 123456789,
                                  HRUtility.strToDate("2010-08-20"),
@@ -66,6 +72,17 @@ public class HRDBSystem {
 
         HRUtility.displayEmployees(mgrList);
         HRUtility.displayEmployees(empList);
+
+        ((Manager) mgrList.get(0)).addEmployee(empList.get(0));
+        ((Manager) mgrList.get(0)).addEmployee(empList.get(1));
+        ((Manager) mgrList.get(0)).addEmployee(empList.get(2));
+        ((Manager) mgrList.get(1)).addEmployee(empList.get(3));
+        ((Manager) mgrList.get(1)).addEmployee(empList.get(4));
+        ((Manager) mgrList.get(1)).addEmployee(empList.get(5));
+
+        for (Employee e : mgrList) {
+            Manager.displayManager((Manager) e);
+        }
     }
 
 }
