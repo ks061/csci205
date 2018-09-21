@@ -19,7 +19,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 /**
- * HRDBSystem simulates an HR Database System, including entering in and looking
+ * HRDBSystem simulates an HR database system, including entering in and looking
  * up people in the HR database.
  *
  * @author Kartikeya Sharma
@@ -27,6 +27,9 @@ import java.util.ArrayList;
 public class HRDBSystem {
 
     /**
+     * Simulates an HR database system, including entering in and looking up
+     * people in the HR database
+     *
      * @param args the command line arguments
      * @throws java.text.ParseException
      */
@@ -37,10 +40,16 @@ public class HRDBSystem {
 
         mgrList.add(new Manager(0, "Keith", "Buffinton", 101010101,
                                 HRUtility.strToDate("2010-08-20"),
-                                150000, "ENGINEERING"));
-        mgrList.add(new Manager(1, "Mick", "Smyer", 121230103,
-                                HRUtility.strToDate(
-                                        "2001-02-19"), 1000000, "ADMIN"));
+                                150000, "STAFF"));
+
+        // Asked to throw IllegalArgumentException in the lab
+        try {
+            mgrList.add(new Manager(1, "Mick", "Smyer", 121230103,
+                                    HRUtility.strToDate(
+                                            "2001-02-19"), 1000000, "H"));
+        } catch (IllegalArgumentException e) {
+        }
+
         empList.add(new Employee(1, "Brian", "King", 123456789,
                                  HRUtility.strToDate("2010-08-20"),
                                  60000));

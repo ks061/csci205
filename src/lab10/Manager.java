@@ -17,6 +17,10 @@ package lab10;
 
 import java.util.Date;
 
+enum DeptType {
+    ENGINEERING, HR, ADMIN, STAFF, OTHER;
+}
+
 /**
  * Manager represents a manager, a type of employee.
  *
@@ -27,10 +31,11 @@ public class Manager extends Employee {
     /**
      * Department name manager works in
      */
-    private String deptName;
+    private DeptType dept;
 
     /**
-     * Explicit construct to create new manager
+     * Explicit constructor to create new manager with department name inputted
+     * as a String
      *
      * @param empID - employee ID
      * @param firstName - employee first name
@@ -38,30 +43,66 @@ public class Manager extends Employee {
      * @param ssNum - employee social security number
      * @param hireDate - date employee was hired on
      * @param salary - salary employee receives
-     * @param deptName - department manager works in
+     * @param dept - department manager works in
      */
     public Manager(int empID, String firstName, String lastName, int ssNum,
-                   Date hireDate, double salary, String deptName) {
+                   Date hireDate, double salary, String dept) {
         super(empID, firstName, lastName, ssNum, hireDate, salary);
-        this.deptName = deptName;
+        this.dept = DeptType.valueOf(dept);
     }
 
     /**
-     * Get the value of deptName
+     * Explicit constructor to create new manager with department name
+     * represented as a DeptType object
+     *
+     * @param empID - employee ID
+     * @param firstName - employee first name
+     * @param lastName - employee last name
+     * @param ssNum - employee social security number
+     * @param hireDate - date employee was hired on
+     * @param salary - salary employee receives
+     * @param dept - department manager works in
+     */
+    public Manager(int empID, String firstName, String lastName, int ssNum,
+                   Date hireDate, double salary, DeptType dept) {
+        super(empID, firstName, lastName, ssNum, hireDate, salary);
+        this.dept = dept;
+    }
+
+    /**
+     * Gets the value of deptName
      *
      * @return the value of deptName
      */
     public String getDeptName() {
-        return deptName;
+        return this.dept.name();
     }
 
     /**
-     * Set the value of deptName
+     * Sets the value of deptName
      *
      * @param deptName new value of deptName
      */
     public void setDeptName(String deptName) {
-        this.deptName = deptName;
+        this.dept = DeptType.valueOf(deptName);
+    }
+
+    /**
+     * Gets the department type
+     *
+     * @return department type
+     */
+    public DeptType getDept() {
+        return this.dept;
+    }
+
+    /**
+     * Sets the department type
+     *
+     * @param dept new department type
+     */
+    public void setDept(DeptType dept) {
+        this.dept = dept;
     }
 
     /**

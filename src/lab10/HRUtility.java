@@ -7,7 +7,7 @@
  * Time: 7:45:28 PM
  *
  * Project: csci205
- * Package:
+ * Package: lab10
  * File: HRUtility
  * Description: This file contains the HRUtility class
  *
@@ -33,6 +33,12 @@ public final class HRUtility {
     private static SimpleDateFormat empDateFormat = new SimpleDateFormat(
             "yyyy-MM-dd");
 
+    /**
+     * Displays one employee's employee ID, first name, last name, and a manager
+     * tag if the employee is a manager
+     *
+     * @param emp - employee to be displayed
+     */
     public static void displayEmployee(Employee emp) {
         System.out.print(
                 emp.getEmpID() + ": " + emp.getFirstName() + " " + emp.getLastName());
@@ -44,6 +50,12 @@ public final class HRUtility {
         }
     }
 
+    /**
+     * Displays a list of employees, including their employee IDs, first names,
+     * last names, and manager tags for each employee that is a manager
+     *
+     * @param listOfEmps - list of employees to be displayed
+     */
     public static void displayEmployees(List<Employee> listOfEmps) {
         for (Employee e : listOfEmps) {
             displayEmployee(e);
