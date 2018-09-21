@@ -9,7 +9,9 @@
  * Project: csci205
  * Package: lab10
  * File: HRDBSystem
- * Description: This file contains the HRDBSystem class, which simulates an HR Database System, including entering in and looking up people in the HR database.
+ * Description: This file contains the HRDBSystem class, which simulates an
+ *              HR Database System, including entering in and looking up people
+ *              in the HR database.
  *
  * ****************************************
  */

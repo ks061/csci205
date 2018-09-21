@@ -10,8 +10,7 @@
  * Project: csci205
  * Package: lab10
  * File: Employee
- * Description:
- * A very basic abstraction for an employee in a simple HR system
+ * Description: A very basic abstraction for an employee in a simple HR system
  * ****************************************
  */
 package lab10;
