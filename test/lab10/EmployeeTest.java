@@ -9,7 +9,7 @@
  * Project: csci205
  * Package: lab10
  * File: EmployeeTest
- * Description:
+ * Description: This file contains the EmployeeTest class, which tests Employee using JUnit
  *
  * ****************************************
  */
@@ -19,30 +19,54 @@ import java.text.ParseException;
 import junit.framework.TestCase;
 
 /**
- * Employee tests Employee using JUnit
+ * EmployeeTest tests Employee using JUnit
  *
  * @author Kartikeya Sharma
  */
 public class EmployeeTest extends TestCase {
 
+    /**
+     * Employee instance used to test the Employee class
+     */
     private Employee emp;
+
+    /**
+     * Maximum allowable error in comparing two decimal numbers
+     */
     static final double EPSILON = 1.0E-12;
 
+    /**
+     * Explicit constructor to create JUnit test for Employee class
+     *
+     * @param testName - customized name for this instance of EmployeeTest
+     */
     public EmployeeTest(String testName) {
         super(testName);
     }
 
+    /**
+     * Sets up instance fields before each JUnit test
+     *
+     * @throws Exception
+     * @throws java.text.ParseException
+     */
     @Override
     protected void setUp() throws Exception, ParseException {
         super.setUp();
         emp = new Employee(1, "Brian", "King", 123456789,
-                           Employee.strToDate("2010-08-20"),
+                           HRUtility.strToDate("2010-08-20"),
                            60000);
     }
 
+    /**
+     * Resets instance fields after each JUnit test
+     *
+     * @throws Exception
+     */
     @Override
     protected void tearDown() throws Exception {
         super.tearDown();
+        emp = null;
     }
 
     /**
@@ -74,7 +98,7 @@ public class EmployeeTest extends TestCase {
     public void testEquals() throws ParseException {
         System.out.println("equals");
         Object obj = new Employee(1, "Brian", "King", 123456789,
-                                  Employee.strToDate("2010-08-20"),
+                                  HRUtility.strToDate("2010-08-20"),
                                   60000);
         assertTrue(emp.equals(obj));
     }
