@@ -28,12 +28,23 @@ import java.util.HashSet;
  *
  * @author brk009
  */
-public class Employee {
+public class Employee implements Payable {
 
     /**
      * List of employee IDs
      */
     private static HashSet<Integer> setOfIds = new HashSet<Integer>();
+
+    /**
+     * Constant representing the number of hours in a standard work week
+     */
+    private static final int NUM_HOURS_IN_WORK_WEEK = 40;
+
+    /**
+     * Constant representing the number of weeks in a year (assuming non-leap
+     * year)
+     */
+    private static final int NUM_WEEKS_IN_YEAR = 52;
 
     /**
      * Instance variables representing particular data attributes of an employee
@@ -200,6 +211,52 @@ public class Employee {
             id++;
         }
         return id;
+    }
+
+    /**
+     * Gets the gross pay due to the employee based on the number of hours
+     * worked by the employee within one week
+     *
+     * @param numHrs number of hours worked by the employee within one week
+     * @return gross pay due to the employee based on
+     */
+    @Override
+    public double calculatePay(double numHrs) {
+        double hourlyRate = this.salary / (NUM_HOURS_IN_WORK_WEEK * NUM_WEEKS_IN_YEAR);
+        double grossPay = 0;
+        if (numHrs > NUM_HOURS_IN_WORK_WEEK) {
+            grossPay += (numHrs - NUM_HOURS_IN_WORK_WEEK) * 1.5 * hourlyRate;
+            numHrs = NUM_HOURS_IN_WORK_WEEK;
+        }
+        grossPay += numHrs * hourlyRate;
+        return grossPay;
+    }
+
+    /**
+     * Gets a string representation of the first and last name of the employee
+     * for the payee field of the check
+     *
+     * Example: Jane Doe
+     *
+     * @return string representation of the first and last name of the employee
+     */
+    @Override
+    public String getPayTo() {
+        return this.firstName + " " + this.lastName;
+    }
+
+    /**
+     * Gets a string representation of the employee ID with today's date for the
+     * memo field of the check
+     *
+     * Example: Employee ID: 12345, Pay Date: 2015-Sep-24
+     *
+     * @return string representation of the employee ID with today's date
+     */
+    @Override
+    public String getPayMemo() {
+        return "Employee ID: " + this.empID + ", Pay Date: " + HRUtility.dateToStr(
+                new Date());
     }
 
 }
