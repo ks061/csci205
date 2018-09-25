@@ -9,7 +9,7 @@
  * Project: csci205
  * Package: lab11
  * File: ManagerTest
- * Description: This file contains ManagerTests, which tests Manager using JUnit
+ * Description: This file contains ManagerTests, which tests Manager using JUnit.
  *
  * ****************************************
  */

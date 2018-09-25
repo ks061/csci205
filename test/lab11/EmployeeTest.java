@@ -9,7 +9,8 @@
  * Project: csci205
  * Package: lab11
  * File: EmployeeTest
- * Description: This file contains the EmployeeTest class, which tests Employee using JUnit
+ * Description: This file contains the EmployeeTest class, which tests Employee
+ *              using JUnit.
  *
  * ****************************************
  */
