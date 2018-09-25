@@ -82,9 +82,19 @@ public class HRDBSystem {
         ((Manager) mgrList.get(1)).addEmployee(empList.get(4));
         ((Manager) mgrList.get(1)).addEmployee(empList.get(5));
 
+        System.out.println();
+
         for (Employee e : mgrList) {
             HRUtility.displayManager((Manager) e);
         }
+
+        System.out.println();
+
+        Contractor cont1 = new Contractor(73, "Builder", "Bob", 342942039, 30.00);
+        Contractor cont2 = new Contractor(0, "Joe", "Shmoe", 298347923, 40.00);
+
+        System.out.println(cont1);
+        System.out.println(cont2);
     }
 
 }

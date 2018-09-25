@@ -215,10 +215,12 @@ public class Employee implements Payable {
 
     /**
      * Gets the gross pay due to the employee based on the number of hours
-     * worked by the employee within one week
+     * worked by the employee within one week; this includes overtime pay at 1.5
+     * times the hourly rate for any hours beyond the standard number of hours
+     * in a work week
      *
      * @param numHrs number of hours worked by the employee within one week
-     * @return gross pay due to the employee based on
+     * @return gross pay due to the employee
      */
     @Override
     public double calculatePay(double numHrs) {
