@@ -108,4 +108,17 @@ public class EmployeeTest extends TestCase {
         assertFalse(emp.equals(obj));
     }
 
+    /**
+     * Test of calculatePay method, of class Employee.
+     */
+    public void testCalculatePay() {
+        double hoursBilled;
+
+        hoursBilled = 39;
+        assertEquals(1125, emp.calculatePay(hoursBilled), EPSILON);
+
+        hoursBilled = 41;
+        assertEquals(1197.115384615385, emp.calculatePay(hoursBilled), EPSILON);
+    }
+
 }

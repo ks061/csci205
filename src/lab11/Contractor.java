@@ -123,6 +123,10 @@ public class Contractor implements Payable {
      */
     @Override
     public double calculatePay(double numHrs) {
+        if (numHrs < 0) {
+            throw new IllegalArgumentException(
+                    "The number of hours billed is and yet cannot be negative.");
+        }
         return numHrs * hourlyRate;
     }
 

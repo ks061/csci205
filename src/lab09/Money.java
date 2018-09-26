@@ -8,7 +8,7 @@
 package lab09;
 
 /**
- * A simple enum type to represent distinct denominations of money. A
+ * A simple enum type to represent distinct denominations of money.
  *
  * Adapted from a CSCI 204 lab, originally designed by Rick Zaccone
  *

@@ -60,7 +60,7 @@ public class HRDBSystem {
 
         empList.add(new Employee(1, "Brian", "King", 123456789,
                                  HRUtility.strToDate("2010-08-20"),
-                                 60000));
+                                 208000));
         empList.add(new Employee(2, "Jane", "Smith", 402040302,
                                  HRUtility.strToDate("2011-07-02"), 60000));
         empList.add(new Employee(201, "Meredith", "Jones", 111111111,
@@ -90,11 +90,41 @@ public class HRDBSystem {
 
         System.out.println();
 
-        Contractor cont1 = new Contractor(73, "Builder", "Bob", 342942039, 30.00);
+        Contractor cont1 = new Contractor(73, "Builder", "Bob", 342942039,
+                                          250.00);
         Contractor cont2 = new Contractor(0, "Joe", "Shmoe", 298347923, 40.00);
 
         System.out.println(cont1);
         System.out.println(cont2);
+
+        System.out.println();
+
+        System.out.println(empList.get(4));
+        empList.get(4).raiseSalary(50000);
+        empList.get(4).changeName("Tom", "Dunbrack");
+        System.out.println(
+                "Raised salary by 50k and changed name to Tom Dunbrack. Should now print: 7,Dunbrack,Tom,549829402,1966-03-01,110000.00");
+        System.out.println(empList.get(4));
+
+        System.out.println();
+
+        // Create an account
+        Account acc = new Account(2000.0);
+        System.out.println(acc);
+        // Test out a couple of payments, intentionally throwing an exception
+        // with the second payment
+        try {
+            System.out.println("TEST: Printing a check to employee id: "
+                               + empList.get(0).getEmpID());
+            acc.processCheck(empList.get(0), 10); // 40 hrs + 10 hrs overtime
+            System.out.println("TEST: Printing a check to contractor id: "
+                               + cont1.getId());
+            acc.processCheck(cont1, 4.0001);
+        } catch (InsufficientFundsException e) {
+            System.out.println(e.getMessage());
+        }
+        // Verify that funds were debited from the account
+        System.out.println(acc);
     }
 
 }
