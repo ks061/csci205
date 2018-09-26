@@ -19,6 +19,7 @@ package lab11;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * HRDBSystem simulates an HR database system, including entering in and looking
@@ -30,18 +31,13 @@ import java.util.ArrayList;
 public class HRDBSystem {
 
     /**
-     * Simulates an HR database system, including entering in and looking up
-     * people in the HR database
+     * Generates a list of managers
      *
-     * @param args the command line arguments
+     * @return generated list of managers
      * @throws java.text.ParseException
-     * @throws ManagerException
      */
-    public static void main(String[] args) throws ParseException, ManagerException {
-
+    public static ArrayList<Employee> generateManagerList() throws ParseException {
         ArrayList<Employee> mgrList = new ArrayList<>();
-        ArrayList<Employee> empList = new ArrayList<>();
-
         mgrList.add(new Manager(0, "Keith", "Buffinton", 101010101,
                                 HRUtility.strToDate("2010-08-20"),
                                 150000, "ENGINEERING"));
@@ -57,7 +53,16 @@ public class HRDBSystem {
         mgrList.add(new Manager(1, "Mick", "Smyer", 121230103,
                                 HRUtility.strToDate(
                                         "2001-02-19"), 1000000, "ADMIN"));
+        return mgrList;
+    }
 
+    /**
+     * Generates a list of employees
+     *
+     * @return generated list of employees
+     */
+    public static ArrayList<Employee> generateEmployeeList() throws ParseException {
+        ArrayList<Employee> empList = new ArrayList<>();
         empList.add(new Employee(1, "Brian", "King", 123456789,
                                  HRUtility.strToDate("2010-08-20"),
                                  208000));
@@ -71,10 +76,43 @@ public class HRDBSystem {
                                  HRUtility.strToDate("1966-03-01"), 60000));
         empList.add(new Employee(200, "Florence", "Machine", 149285729,
                                  HRUtility.strToDate("2014-12-01"), 60000));
+        return empList;
+    }
 
+    /**
+     * Generates a list of contractors
+     *
+     * @return generated list of contractors
+     */
+    public static ArrayList<Contractor> generateContractorList() {
+        ArrayList<Contractor> contractorList = new ArrayList<>();
+        contractorList.add(new Contractor(73, "Builder", "Bob", 342942039,
+                                          250.00));
+        contractorList.add(new Contractor(0, "Joe", "Shmoe", 298347923, 40.00));
+        return contractorList;
+    }
+
+    /**
+     * Simulates an HR database system, including entering in and looking up
+     * people in the HR database
+     *
+     * @param args the command line arguments
+     * @throws java.text.ParseException
+     * @throws ManagerException
+     */
+    public static void main(String[] args) throws ParseException, ManagerException {
+
+        // Generates lists of employees, managers, and contractors
+        ArrayList<Employee> empList = generateEmployeeList();
+        ArrayList<Employee> mgrList = generateManagerList();
+        ArrayList<Contractor> contractorList = generateContractorList();
+
+        // Tests displayEmployees method in HRUtility by printing the employee
+        // and manager lists
         HRUtility.displayEmployees(mgrList);
         HRUtility.displayEmployees(empList);
 
+        // Assigns each of the two managers to three unique employees
         ((Manager) mgrList.get(0)).addEmployee(empList.get(0));
         ((Manager) mgrList.get(0)).addEmployee(empList.get(1));
         ((Manager) mgrList.get(0)).addEmployee(empList.get(2));
@@ -84,21 +122,23 @@ public class HRDBSystem {
 
         System.out.println();
 
+        // Tests displayManager method in HRUtility by printing each manager
+        // in the manager list
         for (Employee e : mgrList) {
             HRUtility.displayManager((Manager) e);
         }
 
         System.out.println();
 
-        Contractor cont1 = new Contractor(73, "Builder", "Bob", 342942039,
-                                          250.00);
-        Contractor cont2 = new Contractor(0, "Joe", "Shmoe", 298347923, 40.00);
-
-        System.out.println(cont1);
-        System.out.println(cont2);
+        // Tests the toString method in the Contractor class by printing each
+        // contractor in the contractor list
+        System.out.println(contractorList.get(0));
+        System.out.println(contractorList.get(1));
 
         System.out.println();
 
+        // Tests to see if the raiseSalary and changeName methods in Employee
+        // work as expected
         System.out.println(empList.get(4));
         empList.get(4).raiseSalary(50000);
         empList.get(4).changeName("Tom", "Dunbrack");
@@ -108,23 +148,42 @@ public class HRDBSystem {
 
         System.out.println();
 
-        // Create an account
+        // Creates an account
         Account acc = new Account(2000.0);
         System.out.println(acc);
-        // Test out a couple of payments, intentionally throwing an exception
-        // with the second payment
+        // Tests out a couple of payments (processing checks), intentionally
+        // throwing an exception with the second payment because the amount
+        // written on the check is greater than the account balance
         try {
             System.out.println("TEST: Printing a check to employee id: "
                                + empList.get(0).getEmpID());
             acc.processCheck(empList.get(0), 10); // 40 hrs + 10 hrs overtime
             System.out.println("TEST: Printing a check to contractor id: "
-                               + cont1.getId());
-            acc.processCheck(cont1, 4.0001);
+                               + contractorList.get(0).getId());
+            acc.processCheck(contractorList.get(0), 4.0001);
         } catch (InsufficientFundsException e) {
             System.out.println(e.getMessage());
         }
         // Verify that funds were debited from the account
         System.out.println(acc);
+
+        System.out.println();
+
+        // Displays the employees
+        System.out.println("*** Employees BEFORE SORT ***");
+        HRUtility.displayEmployees(empList);
+
+        // Sorts the employees by last name (lexoicographically ascending)
+        System.out.println("*** Employees AFTER SORT_BY_LASTNAME ***");
+        Employee.setSortType(SortType.SORT_BY_LASTNAME);
+        Collections.sort(empList);
+        HRUtility.displayEmployees(empList);
+
+        // Sorts the employees by ID (numerically ascending)
+        System.out.println("*** Employees AFTER SORT_BY_ID ***");
+        Employee.setSortType(SortType.SORT_BY_ID);
+        Collections.sort(empList);
+        HRUtility.displayEmployees(empList);
     }
 
 }

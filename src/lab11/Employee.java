@@ -24,16 +24,30 @@ import java.util.Date;
 import java.util.HashSet;
 
 /**
+ * A simple enum type to represent ways to sort Employee objects.
+ *
+ * @author Kartikeya Sharma
+ */
+enum SortType {
+    SORT_BY_LASTNAME, SORT_BY_ID;
+}
+
+/**
  * Employee - represents an employee in the database system
  *
  * @author brk009
  */
-public class Employee implements Payable {
+public class Employee implements Payable, Comparable<Employee> {
 
     /**
      * List of employee IDs
      */
     private static HashSet<Integer> setOfIds = new HashSet<Integer>();
+
+    /**
+     * Type of sorting method that will be used
+     */
+    private static SortType sortType = SortType.SORT_BY_ID;
 
     /**
      * Constant representing the number of hours in a standard work week
@@ -265,4 +279,41 @@ public class Employee implements Payable {
                 new Date());
     }
 
+    /**
+     * Sets the sorting method that will be used
+     *
+     * @param sortType sorting method that will be used
+     */
+    public static void setSortType(SortType sortType) {
+        Employee.sortType = sortType;
+    }
+
+    /**
+     * Compares this Employee with the input employee for order; this order will
+     * either be by ID number if <code>Employee.sortType</code> is set to
+     * <code>SortType.SORT_BY_ID</code> or by last name if
+     * <code>Employee.sortType</code> is set to
+     * <code>SortType.SORT_BY_LASTNAME</code>.
+     *
+     * @param employee employee to be compared to this employee
+     *
+     * @return a negative integer, zero, or a positive integer as this object is
+     * less than, equal to, or greater than the specified object; if sorting is
+     * set to sort by ID, then "greater than" translates to "greater numerical
+     * value than" and if sorting is set to sort by last name, then "greater
+     * than" translates to "lexicographically greater than" (as derived from the
+     * compareTo method in java.lang.String)
+     */
+    public int compareTo(Employee employee) {
+        if (sortType == SortType.SORT_BY_ID) {
+            if (this.empID > employee.empID) {
+                return 1;
+            }
+            if (this.empID == employee.empID) {
+                return 0;
+            }
+            return -1;
+        }
+        return this.lastName.compareTo(employee.lastName);
+    }
 }
