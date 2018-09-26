@@ -60,6 +60,7 @@ public class HRDBSystem {
      * Generates a list of employees
      *
      * @return generated list of employees
+     * @throws java.text.ParseException
      */
     public static ArrayList<Employee> generateEmployeeList() throws ParseException {
         ArrayList<Employee> empList = new ArrayList<>();
