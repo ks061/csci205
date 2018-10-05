@@ -16,6 +16,9 @@
  */
 package lab12;
 
+/**
+ * Imports necessary classes from java.io, java.nio, and junit.
+ */
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
