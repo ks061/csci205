@@ -43,7 +43,6 @@ public class WordCountClient {
         while (runProgram) {
             fc = new JFileChooser(".");
             if (fc.showOpenDialog(new JFrame()) != JFileChooser.APPROVE_OPTION) {
-                runProgram = false;
                 break;
             }
 
@@ -53,7 +52,7 @@ public class WordCountClient {
                 JOptionPane.showMessageDialog(new JFrame(), ex, "File Not Found",
                                               JOptionPane.ERROR_MESSAGE
                 );
-                break;
+                continue;
             }
 
             try {
@@ -63,7 +62,6 @@ public class WordCountClient {
                                               "IOException: File could not be processed.",
                                               JOptionPane.ERROR_MESSAGE
                 );
-                runProgram = false;
                 break;
             }
 
