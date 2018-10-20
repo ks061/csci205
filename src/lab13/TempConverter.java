@@ -47,6 +47,11 @@ import javafx.stage.Stage;
  */
 public class TempConverter extends Application {
 
+    /**
+     * Sets up the GUI at the start of the application launch
+     *
+     * @param primaryStage stage of the GUI
+     */
     @Override
     public void start(Stage primaryStage) {
         VBox root = new VBox(5);
@@ -63,37 +68,49 @@ public class TempConverter extends Application {
         txtFieldTempInput.setPrefColumnCount(5);
         topCell.getChildren().addAll(label, txtFieldTempInput);
 
-        Label tempOutput = new Label();
-        tempOutput.setAlignment(Pos.CENTER);
-        tempOutput.setMinWidth(75);
-        tempOutput.setMinHeight(25);
+        Label labelResult = new Label();
+        labelResult.setAlignment(Pos.CENTER);
+        labelResult.setMinWidth(75);
+        labelResult.setMinHeight(25);
         Border tempOutputBorder = new Border(
                 new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,
                                  new CornerRadii(6),
                                  BorderWidths.DEFAULT));
-        tempOutput.setBorder(tempOutputBorder);
+        labelResult.setBorder(tempOutputBorder);
 
         Button btnConvert = new Button("Convert!");
 
         Text errorMessage = new Text();
         errorMessage.setFill(Color.DARKRED);
 
-        root.getChildren().addAll(topCell, tempOutput, btnConvert, errorMessage);
+        root.getChildren().addAll(topCell, labelResult, btnConvert, errorMessage);
 
         btnConvert.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Converts temperatures from Fahrenheit to Celsius
+             *
+             * @param fahrenheitTemp Fahrenheit temperature to convert to
+             * Celsius
+             * @return converted Celsius temperature
+             */
             private double convertFahrenheitToCelsius(double fahrenheitTemp) {
                 return (5.0 / 9) * (fahrenheitTemp - 32);
             }
 
+            /**
+             * Handles events that occur in the application
+             *
+             * @param event event that occurs in the application
+             */
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    double celsiusTempInput = Double.parseDouble(
+                    double fahrenheitTemp = Double.parseDouble(
                             txtFieldTempInput.getText());
-                    double fahrenheitTempOutput = convertFahrenheitToCelsius(
-                            celsiusTempInput);
-                    tempOutput.setText(String.format("%.1f \u00b0C",
-                                                     fahrenheitTempOutput));
+                    double celsiusTemp = convertFahrenheitToCelsius(
+                            fahrenheitTemp);
+                    labelResult.setText(String.format("%.1f \u00b0C",
+                                                      celsiusTemp));
                     errorMessage.setText("");
                 } catch (NumberFormatException ex) {
                     Alert alert = new Alert(AlertType.ERROR);
@@ -111,17 +128,6 @@ public class TempConverter extends Application {
 
         txtFieldTempInput.setOnAction(btnConvert.getOnAction());
 
-        //        btn.setText("Say 'Hello World'");
-        //        btn.setOnAction(new EventHandler<ActionEvent>() {
-        //
-        //            @Override
-        //            public void handle(ActionEvent event) {
-        //                System.out.println("Hello World!");
-        //            }
-        //        });
-        //
-        //        StackPane root = new StackPane();
-        //        root.getChildren().add(btn);
         Scene scene = new Scene(root, 300, 250);
 
         primaryStage.setTitle("Temperature Converter");
@@ -130,6 +136,8 @@ public class TempConverter extends Application {
     }
 
     /**
+     * Launches the application
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {

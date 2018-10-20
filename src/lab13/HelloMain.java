@@ -45,6 +45,11 @@ import javafx.stage.Stage;
  */
 public class HelloMain extends Application {
 
+    /**
+     * Sets up the GUI at the start of the application launch
+     *
+     * @param primaryStage stage of the GUI
+     */
     @Override
     public void start(Stage primaryStage) {
         VBox root = new VBox(10);
@@ -101,6 +106,11 @@ public class HelloMain extends Application {
 
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
+            /**
+             * Handles events that occur in the application
+             *
+             * @param event event that occurs in the application
+             */
             @Override
             public void handle(ActionEvent event) {
                 textNameOutput1.setText(txtNameInput.getText());
@@ -118,6 +128,8 @@ public class HelloMain extends Application {
     }
 
     /**
+     * Launches the application
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {

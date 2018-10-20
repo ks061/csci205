@@ -34,15 +34,29 @@ import javafx.util.Duration;
  */
 public class RectTreeNode extends Rectangle {
 
+    /**
+     * Width of each rectangle tree node
+     */
     private static final double INIT_WIDTH = 100;
+    /**
+     * Height of each rectangle tree node
+     */
     private static final double INIT_HEIGHT = 75;
 
+    /**
+     * Constructor that initializes the color of the rectangle tree node
+     *
+     * @param fillColor color of the rectangle tree node
+     */
     public RectTreeNode(Paint fillColor) {
         super(INIT_WIDTH, INIT_HEIGHT, fillColor);
         setupEffects();
         continuousTransitions();
     }
 
+    /**
+     * Sets up constant effects for this rectangle tree node
+     */
     private void setupEffects() {
         DropShadow ds = new DropShadow();
         ds.setOffsetX(4.0);
@@ -56,6 +70,10 @@ public class RectTreeNode extends Rectangle {
         this.setEffect(reflection);
     }
 
+    /**
+     * Initializes and applies continuous transitions to this rectangle tree
+     * node
+     */
     private void continuousTransitions() {
         // Extra credit: Additional RotateTransition effect
         RotateTransition rotate = new RotateTransition(Duration.millis(1000));

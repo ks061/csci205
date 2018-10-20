@@ -30,6 +30,14 @@ import javafx.stage.Stage;
  */
 public class SimpleTree extends Application {
 
+    /**
+     * Updates the position of the line based on the position of the two
+     * rectangle tree nodes it connects
+     *
+     * @param line line connecting two rectangle tree nodes
+     * @param r1 one of the rectangle tree nodes connected by the line
+     * @param r2 other rectangle tree node connected by the line
+     */
     private void updateLinePosition(Line line, RectTreeNode r1, RectTreeNode r2) {
         line.setStartX(r1.getX() + r1.getWidth() / 2);
         line.setStartY(r1.getY() + r1.getHeight() / 2);
@@ -37,6 +45,11 @@ public class SimpleTree extends Application {
         line.setEndY(r2.getY() + r2.getHeight() / 2);
     }
 
+    /**
+     * Sets up the GUI at the start of the application launch
+     *
+     * @param primaryStage stage of the GUI
+     */
     @Override
     public void start(Stage primaryStage) {
         Group root = new Group();
@@ -72,6 +85,8 @@ public class SimpleTree extends Application {
     }
 
     /**
+     * Launches the application
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
